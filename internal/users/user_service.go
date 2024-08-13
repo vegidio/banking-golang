@@ -1,14 +1,14 @@
 package users
 
 import (
-	"log/slog"
+	"log"
 	"template-golang/internal/ent"
 )
 
 func FindById(id int) (*UserDto, error) {
 	user, err := QueryById(id)
 	if err != nil {
-		slog.Error("Failed to find user by ID: %w", err)
+		log.Fatal("Failed to find user by ID: %w", err)
 		return nil, err
 	}
 
@@ -23,6 +23,7 @@ func toUserDto(user *ent.User) *UserDto {
 		Name:     user.Name,
 		Username: user.Username,
 		Email:    user.Email,
+		Hash:     user.Hash,
 	}
 }
 
