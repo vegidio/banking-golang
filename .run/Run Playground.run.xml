@@ -1,11 +1,11 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run" type="GoApplicationRunConfiguration" factoryName="Go Application">
+  <configuration default="false" name="Run Playground" type="GoApplicationRunConfiguration" factoryName="Go Application">
     <module name="template-golang" />
     <working_directory value="$PROJECT_DIR$" />
     <kind value="PACKAGE" />
-    <package value="template-golang" />
+    <package value="template-golang/cmd/playground" />
     <directory value="$PROJECT_DIR$" />
-    <filePath value="template-golang" />
+    <filePath value="$PROJECT_DIR$/cmd/playground/main.go" />
     <method v="2" />
   </configuration>
 </component>

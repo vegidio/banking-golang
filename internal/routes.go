@@ -6,6 +6,6 @@ import (
 )
 
 func SetupRoutes(router *gin.RouterGroup) {
-	userRoutes := router.Group("/users")
-	users.SetupRoutes(userRoutes)
+	userController := router.Group("/users")
+	users.SetupController(userController)
 }
