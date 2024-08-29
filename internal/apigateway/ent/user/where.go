@@ -3,7 +3,7 @@
 package user
 
 import (
-	"template-golang/internal/ent/predicate"
+	"banking/internal/apigateway/ent/predicate"
 
 	"entgo.io/ent/dialect/sql"
 )

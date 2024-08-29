@@ -1,8 +1,8 @@
 package users
 
 import (
+	"banking/internal/apigateway/ent"
 	"log"
-	"template-golang/internal/ent"
 )
 
 func FindById(id int) (*UserDto, error) {

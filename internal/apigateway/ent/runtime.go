@@ -3,8 +3,8 @@
 package ent
 
 import (
-	"template-golang/internal/ent/schema"
-	"template-golang/internal/ent/user"
+	"banking/internal/apigateway/ent/schema"
+	"banking/internal/apigateway/ent/user"
 )
 
 // The init function reads all schema descriptors with runtime code

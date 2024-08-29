@@ -1,13 +1,13 @@
 package main
 
 import (
+	"banking/internal/apigateway/ent"
 	"context"
 	"fmt"
 	_ "github.com/lib/pq"
 	"log"
 	"log/slog"
 	"os"
-	"template-golang/internal/ent"
 )
 
 func main() {

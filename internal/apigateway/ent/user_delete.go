@@ -3,9 +3,9 @@
 package ent
 
 import (
+	"banking/internal/apigateway/ent/predicate"
+	"banking/internal/apigateway/ent/user"
 	"context"
-	"template-golang/internal/ent/predicate"
-	"template-golang/internal/ent/user"
 
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"

@@ -9,9 +9,9 @@ import (
 	"log"
 	"reflect"
 
-	"template-golang/internal/ent/migrate"
+	"banking/internal/apigateway/ent/migrate"
 
-	"template-golang/internal/ent/user"
+	"banking/internal/apigateway/ent/user"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect"

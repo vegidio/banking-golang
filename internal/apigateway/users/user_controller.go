@@ -1,8 +1,8 @@
 package users
 
 import (
+	. "banking/internal/apigateway/shared"
 	"github.com/gin-gonic/gin"
-	. "template-golang/internal/shared"
 )
 
 func SetupController(router *gin.RouterGroup) {

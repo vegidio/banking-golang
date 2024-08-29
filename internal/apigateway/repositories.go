@@ -1,11 +1,11 @@
-package internal
+package apigateway
 
 import (
+	"banking/internal/apigateway/ent"
+	"banking/internal/apigateway/users"
 	"fmt"
 	_ "github.com/lib/pq"
 	"os"
-	"template-golang/internal/ent"
-	"template-golang/internal/users"
 )
 
 func SetupRepositories() (*ent.Client, error) {

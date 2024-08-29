@@ -2,8 +2,8 @@
 
 ## Running
 
-- Server: `go run ./cmd/server`
 - Playground: `go run ./cmd/playground`
+- API Gateway: `go run ./cmd/apigateway`
 
 ## Database Configuration
 

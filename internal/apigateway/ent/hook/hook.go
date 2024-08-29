@@ -3,9 +3,9 @@
 package hook
 
 import (
+	"banking/internal/apigateway/ent"
 	"context"
 	"fmt"
-	"template-golang/internal/ent"
 )
 
 // The UserFunc type is an adapter to allow the use of ordinary

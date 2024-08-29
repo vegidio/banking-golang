@@ -1,17 +1,17 @@
 package main
 
 import (
+	"banking/internal/apigateway"
 	"github.com/gin-gonic/gin"
 	"log"
 	"log/slog"
-	"template-golang/internal"
 )
 
 func main() {
 	engine := gin.Default()
 
 	// Connect to the database
-	dbClient, err := internal.SetupRepositories()
+	dbClient, err := apigateway.SetupRepositories()
 	if err != nil {
 		log.Fatal("Failed to connect to Postgres: ", err)
 	}
@@ -20,9 +20,9 @@ func main() {
 
 	// Endpoints
 	router := engine.Group("/v1")
-	internal.SetupRoutes(router)
+	apigateway.SetupRoutes(router)
 
-	err = engine.Run(":3000")
+	err = engine.Run(":3001")
 	if err != nil {
 		slog.Error("Error starting server: %w", err)
 	}

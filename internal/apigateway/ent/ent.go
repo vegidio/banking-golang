@@ -3,12 +3,12 @@
 package ent
 
 import (
+	"banking/internal/apigateway/ent/user"
 	"context"
 	"errors"
 	"fmt"
 	"reflect"
 	"sync"
-	"template-golang/internal/ent/user"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"

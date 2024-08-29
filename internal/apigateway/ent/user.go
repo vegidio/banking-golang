@@ -3,9 +3,9 @@
 package ent
 
 import (
+	"banking/internal/apigateway/ent/user"
 	"fmt"
 	"strings"
-	"template-golang/internal/ent/user"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect/sql"

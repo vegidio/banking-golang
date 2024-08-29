@@ -5,11 +5,11 @@ package enttest
 import (
 	"context"
 
-	"template-golang/internal/ent"
+	"banking/internal/apigateway/ent"
 	// required by schema hooks.
-	_ "template-golang/internal/ent/runtime"
+	_ "banking/internal/apigateway/ent/runtime"
 
-	"template-golang/internal/ent/migrate"
+	"banking/internal/apigateway/ent/migrate"
 
 	"entgo.io/ent/dialect/sql/schema"
 )

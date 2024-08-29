@@ -1,9 +1,9 @@
 package users
 
 import (
+	"banking/internal/apigateway/ent"
+	"banking/internal/apigateway/ent/user"
 	"context"
-	"template-golang/internal/ent"
-	"template-golang/internal/ent/user"
 )
 
 var db *ent.Client

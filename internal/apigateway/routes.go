@@ -1,8 +1,8 @@
-package internal
+package apigateway
 
 import (
+	"banking/internal/apigateway/users"
 	"github.com/gin-gonic/gin"
-	"template-golang/internal/users"
 )
 
 func SetupRoutes(router *gin.RouterGroup) {

@@ -1,4 +1,4 @@
-module template-golang
+module banking
 
 go 1.22
 
