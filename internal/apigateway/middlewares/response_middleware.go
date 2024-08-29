@@ -18,10 +18,13 @@ func ResponseMiddleware() gin.HandlerFunc {
 		// Process the request
 		c.Next()
 
+		// Reset the response body, otherwise it will write the original response and the new response
+		c.Writer = writer.ResponseWriter
+
 		// If there's an error, modify the response accordingly
 		if len(c.Errors) > 0 {
 			response := Response[interface{}]{
-				Error: fmt.Errorf(c.Errors.String()),
+				Error: c.Errors[0].Err,
 			}
 
 			c.JSON(c.Writer.Status(), response)
@@ -41,9 +44,6 @@ func ResponseMiddleware() gin.HandlerFunc {
 			Data:  responseData,
 			Error: nil,
 		}
-
-		// Reset the response body, otherwise it will write the original response and the new response
-		c.Writer = writer.ResponseWriter
 
 		// Send the wrapped response
 		c.JSON(c.Writer.Status(), response)

@@ -11,14 +11,14 @@ import (
 func main() {
 	engine := gin.Default()
 
-	// Initialize middlewares
-	engine.Use(middlewares.ResponseMiddleware())
-
 	// Connect to the database
 	dbClient, err := SetupRepositories()
 	if err != nil {
-		log.Fatal("Failed to connect to Postgres: ", err)
+		log.Fatal("Failed to connect to the database: ", err)
 	}
+
+	// Initialize middlewares
+	engine.Use(middlewares.ResponseMiddleware())
 
 	defer dbClient.Close()
 

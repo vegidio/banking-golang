@@ -2,7 +2,7 @@ package apigateway
 
 import (
 	"banking/internal/apigateway/ent"
-	"banking/internal/apigateway/users"
+	"banking/internal/apigateway/feat/users"
 	"fmt"
 	_ "github.com/lib/pq"
 	"os"
@@ -13,7 +13,7 @@ func SetupRepositories() (*ent.Client, error) {
 	pgPort := os.Getenv("PG_PORT")
 	pgUsername := os.Getenv("PG_USERNAME")
 	pgPassword := os.Getenv("PG_PASSWORD")
-	dataSource := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=countries sslmode=disable", pgHost,
+	dataSource := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=bank sslmode=disable", pgHost,
 		pgPort, pgUsername, pgPassword)
 
 	client, err := ent.Open("postgres", dataSource)
