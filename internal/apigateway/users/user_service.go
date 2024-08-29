@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func FindById(id int) (*UserDto, error) {
+func RetrieveById(id int) (*UserDto, error) {
 	user, err := QueryById(id)
 	if err != nil {
 		log.Fatal("Failed to find user by ID: %w", err)

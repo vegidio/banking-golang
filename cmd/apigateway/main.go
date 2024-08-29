@@ -1,7 +1,8 @@
 package main
 
 import (
-	"banking/internal/apigateway"
+	. "banking/internal/apigateway"
+	"banking/internal/apigateway/middlewares"
 	"github.com/gin-gonic/gin"
 	"log"
 	"log/slog"
@@ -10,8 +11,11 @@ import (
 func main() {
 	engine := gin.Default()
 
+	// Initialize middlewares
+	engine.Use(middlewares.ResponseMiddleware())
+
 	// Connect to the database
-	dbClient, err := apigateway.SetupRepositories()
+	dbClient, err := SetupRepositories()
 	if err != nil {
 		log.Fatal("Failed to connect to Postgres: ", err)
 	}
@@ -19,8 +23,8 @@ func main() {
 	defer dbClient.Close()
 
 	// Endpoints
-	router := engine.Group("/v1")
-	apigateway.SetupRoutes(router)
+	router := engine.Group("/api/v1")
+	SetupRoutes(router)
 
 	err = engine.Run(":3001")
 	if err != nil {
