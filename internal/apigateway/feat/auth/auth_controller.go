@@ -1,6 +1,8 @@
 package auth
 
 import (
+	. "banking/internal/apigateway/shared"
+	"banking/internal/apigateway/shared/errors"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -14,13 +16,14 @@ func SetupController(router *gin.RouterGroup) {
 func postSignIn(c *gin.Context) {
 	var dto SigninDto
 	if err := c.ShouldBindJSON(&dto); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		Abort(c, errors.BadRequest(Params{}))
 		return
 	}
 
 	tokens, err := SignIn(dto.Email, dto.Password)
 	if err != nil {
-		_ = c.AbortWithError(err.Status, err)
+		Abort(c, err)
+		return
 	}
 
 	c.JSON(http.StatusOK, tokens)

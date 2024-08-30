@@ -7,7 +7,7 @@ type Response[T any] struct {
 	Error error `json:"error,omitempty"`
 }
 
-type HttpError struct {
+type ApiError struct {
 	Status   int    `json:"status"`
 	Type     string `json:"type"`
 	Title    string `json:"title,omitempty"`
@@ -15,6 +15,7 @@ type HttpError struct {
 	Instance string `json:"instance,omitempty"`
 }
 
-func (e *HttpError) Error() string {
-	return fmt.Sprintf("Status %d: %s", e.Status, e.Type)
+func (e *ApiError) Error() string {
+	return fmt.Sprintf("ApiError[Status=%d, Type=%s, Title=%s, Detail=%s, Instance=%s]",
+		e.Status, e.Type, e.Title, e.Detail, e.Instance)
 }

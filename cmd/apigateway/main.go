@@ -17,10 +17,10 @@ func main() {
 		log.Fatal("Failed to connect to the database: ", err)
 	}
 
+	defer dbClient.Close()
+
 	// Initialize middlewares
 	engine.Use(middlewares.ResponseMiddleware())
-
-	defer dbClient.Close()
 
 	// Endpoints
 	router := engine.Group("/api/v1")

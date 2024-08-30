@@ -1,6 +1,7 @@
 package users
 
 import (
+	. "banking/internal/apigateway/shared"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -12,7 +13,12 @@ func SetupController(router *gin.RouterGroup) {
 // region - Private functions
 
 func getMe(c *gin.Context) {
-	user, _ := RetrieveById(1)
+	user, err := RetrieveById(1)
+	if err != nil {
+		Abort(c, err)
+		return
+	}
+
 	c.JSON(http.StatusOK, user)
 }
 

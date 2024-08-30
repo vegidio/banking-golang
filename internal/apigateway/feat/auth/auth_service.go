@@ -2,22 +2,22 @@ package auth
 
 import (
 	"banking/internal/apigateway/feat/users"
-	"banking/internal/apigateway/shared"
-	. "banking/internal/apigateway/shared/errors"
+	. "banking/internal/apigateway/shared"
+	"banking/internal/apigateway/shared/errors"
 	"banking/pkg"
 	"github.com/golang-jwt/jwt/v5"
 	"time"
 )
 
-func SignIn(email string, password string) (*TokenDto, *shared.HttpError) {
+func SignIn(email string, password string) (*TokenDto, *ApiError) {
 	user, err := users.QueryUserByEmail(email)
 	if err != nil {
-		return nil, Unauthorized(Params{Detail: err.Error()})
+		return nil, errors.Unauthorized(Params{Detail: "Invalid user credentials"})
 	}
 
 	isMatch, err := pkg.Argon2iCheckPassword(password, user.Hash)
 	if !isMatch || err != nil {
-		return nil, Unauthorized(Params{Detail: err.Error()})
+		return nil, errors.Unauthorized(Params{Detail: "Invalid user credentials"})
 	}
 
 	return createTokens(users.ToUserDto(user)), nil

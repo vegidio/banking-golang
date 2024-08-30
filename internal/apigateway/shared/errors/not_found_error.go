@@ -5,13 +5,13 @@ import (
 	"net/http"
 )
 
-func Unauthorized(params Params) *ApiError {
+func NotFound(params Params) *ApiError {
 	if params.Type == "" {
-		params.Type = "UNAUTHORIZED"
+		params.Type = "NOT_FOUND"
 	}
 
 	return &ApiError{
-		Status:   http.StatusUnauthorized,
+		Status:   http.StatusNotFound,
 		Type:     params.Type,
 		Title:    params.Title,
 		Detail:   params.Detail,

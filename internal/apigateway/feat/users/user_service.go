@@ -1,14 +1,14 @@
 package users
 
 import (
-	"log"
+	. "banking/internal/apigateway/shared"
+	"banking/internal/apigateway/shared/errors"
 )
 
-func RetrieveById(id int) (*UserDto, error) {
+func RetrieveById(id int) (*UserDto, *ApiError) {
 	user, err := QueryById(id)
 	if err != nil {
-		log.Fatal("Failed to find user by ID: %w", err)
-		return nil, err
+		return nil, errors.NotFound(Params{Detail: err.Error()})
 	}
 
 	return ToUserDto(user), nil

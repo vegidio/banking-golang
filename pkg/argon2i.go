@@ -41,5 +41,5 @@ func Argon2iCheckPassword(password, encodedHash string) (bool, error) {
 		return true, nil
 	}
 
-	return false, nil
+	return false, errors.New("password does not match")
 }
